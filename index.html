@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniKurd Gateway & Tech Academy | Kurdistan Region</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Google Fonts: Inter & Noto Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            kurdGold: '#f59e0b',
+            kurdOrange: '#d97706',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Arabic', 'sans-serif'],
+            kurdish: ['Noto Sans Arabic', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    .dark ::-webkit-scrollbar-track { background: #0f172a; }
+    .dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    
+    html:not(.dark) ::-webkit-scrollbar-track { background: #f1f5f9; }
+    html:not(.dark) ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+    /* RTL Utilities */
+    [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+    
+    /* Dynamic Glass Card */
+    .glass-card { transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+    .dark .glass-card {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f8fafc;
+    }
+    html:not(.dark) .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      color: #0f172a;
+    }
+
+    /* Slanted 'i' Logo Styling */
+    .tilted-i {
+      display: inline-block;
+      transform: rotate(-12deg);
+      font-weight: 900;
+    }
+
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .dark .site-bg { background-color: #020617; color: #f8fafc; }
+    html:not(.dark) .site-bg { background-color: #f8fafc; color: #0f172a; }
+
+    .dark .section-alt-bg { background-color: #0f172a; border-color: #1e293b; }
+    html:not(.dark) .section-alt-bg { background-color: #ffffff; border-color: #e2e8f0; }
+
+    .dark .input-bg { background-color: #0f172a; border-color: #334155; color: #ffffff; }
+    html:not(.dark) .input-bg { background-color: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
+
+    .dark .nav-bg { background-color: rgba(2, 6, 23, 0.9); border-color: #1e293b; }
+    html:not(.dark) .nav-bg { background-color: rgba(255, 255, 255, 0.95); border-color: #e2e8f0; }
+
+    .dark .heading-text { color: #ffffff; }
+    html:not(.dark) .heading-text { color: #0f172a; }
+
+    .dark .sub-text { color: #94a3b8; }
+    html:not(.dark) .sub-text { color: #475569; }
+  </style>
+</head>
+<body class="site-bg font-sans antialiased min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- TOP BAR: SOCIAL MEDIA & QUICK PARTNER LINKS -->
+  <div class="bg-slate-900 dark:bg-slate-950 light:bg-slate-100 border-b border-slate-800 dark:border-slate-800 light:border-slate-200 py-1.5 px-4 text-xs transition-colors">
+    <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
+      
+      <div class="flex items-center space-x-2 rtl:space-x-reverse sub-text">
+        <span class="bg-amber-500 text-slate-950 text-[10px] px-2 py-0.5 rounded-full font-black uppercase" id="top-badge">ANNOUNCEMENT</span>
+        <span id="top-announcement" class="hidden sm:inline">2026-2027 Academic & Tech Bootcamp Admissions Open across Erbil, Sulaymaniah & Duhok!</span>
+      </div>
+
+      <div class="flex items-center space-x-4 rtl:space-x-reverse ms-auto">
+        <!-- Social Media Links -->
+        <div class="flex items-center space-x-3 rtl:space-x-reverse sub-text border-r dark:border-slate-800 light:border-slate-300 pe-3 rtl:pe-0 rtl:ps-3 rtl:border-r-0 rtl:border-l">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <a href="#partners" class="flex items-center gap-1.5 text-amber-500 font-bold hover:underline text-[11px]">
+          <i class="fa-solid fa-handshake"></i>
+          <span id="top-partners-link">Partners</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 nav-bg backdrop-blur-md border-b transition-colors">
+    <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- LOGO WITH TILTED 'i' -->
+      <a href="#" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          <span class="transform -rotate-12">U</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-baseline font-black text-2xl tracking-tight heading-text">
+            <span>Un</span>
+            <span class="tilted-i text-white dark:text-white light:text-slate-900 mx-0.5 text-2xl">i</span>
+            <span class="text-amber-600 dark:text-amber-500">Kurd</span>
+          </div>
+          <span class="text-[9px] uppercase tracking-widest sub-text font-bold -mt-1" id="logo-tagline">Academic & Tech Gateway</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV LINKS -->
+      <nav class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-bold text-xs sub-text">
+        <a href="#about" class="hover:text-amber-500 transition-colors py-2" id="nav-about">About Us</a>
+        <a href="#programs" class="hover:text-amber-500 transition-colors py-2" id="nav-programs">Degrees & Bootcamps</a>
+        <a href="#cities" class="hover:text-amber-500 transition-colors py-2" id="nav-cities">Study & Tech Hubs</a>
+        <a href="#partners" class="hover:text-amber-500 transition-colors py-2" id="nav-partners">Partners</a>
+        <a href="#benefits" class="hover:text-amber-500 transition-colors py-2" id="nav-benefits">Partner Benefits</a>
+        <a href="#contact" class="hover:text-amber-500 transition-colors py-2" id="nav-contact">Contact Us</a>
+      </nav>
+
+      <!-- RIGHT HEADER ACTIONS -->
+      <div class="flex items-center space-x-3 rtl:space-x-reverse ms-auto lg:ms-0">
+        
+        <!-- LANGUAGE SWITCHER (EN | CK | KM | AR) -->
+        <div class="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg border border-slate-300 dark:border-slate-700">
+          <button onclick="setLanguage('en')" id="lang-en" class="lang-btn bg-amber-500 text-slate-950 font-black">EN</button>
+          <button onclick="setLanguage('ck')" id="lang-ck" class="lang-btn sub-text hover:text-amber-500">CK</button>
+          <button onclick="setLanguage('km')" id="lang-km" class="lang-btn sub-text hover:text-amber-500">KM</button>
+          <button onclick="setLanguage('ar')" id="lang-ar" class="lang-btn sub-text hover:text-amber-500">AR</button>
+        </div>
+
+        <!-- DARK / LIGHT MODE SWITCHER -->
+        <button id="theme-toggle" class="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 flex items-center justify-center transition-colors border border-slate-300 dark:border-slate-700" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon hidden dark:inline text-xs"></i>
+          <i class="fa-solid fa-sun inline dark:hidden text-xs"></i>
+        </button>
+
+        <!-- REGISTER BUTTON -->
+        <button onclick="openRegisterModal()" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5 transition-all">
+          <i class="fa-solid fa-user-plus"></i>
+          <span id="btn-register-top">Register / Apply</span>
+        </button>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-2 heading-text text-lg">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t section-alt-bg px-6 py-4 space-y-3">
+      <a href="#about" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-about">About Us</a>
+      <a href="#programs" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-programs">Degrees & Bootcamps</a>
+      <a href="#cities" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-cities">Study & Tech Hubs</a>
+      <a href="#partners" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-partners">Partners</a>
+      <a href="#benefits" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-benefits">Partner Benefits</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block sub-text hover:text-amber-500 py-1" id="m-nav-contact">Contact Us</a>
+      <button onclick="toggleMobileMenu(); openRegisterModal();" class="w-full mt-2 bg-amber-500 text-slate-950 font-extrabold py-2.5 rounded-lg text-xs uppercase text-center" id="m-btn-register">
+        Register / Apply
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH QUICK SEARCH FILTER -->
+  <section class="relative py-16 lg:py-24 overflow-hidden site-bg transition-colors">
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left rtl:lg:text-right">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-xs font-bold">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span id="hero-badge">Kurdistan Region Academic & Tech Portal</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight heading-text" id="hero-title">
+            Empowering Education & Tech Careers in <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500">Kurdistan</span>
+          </h1>
+
+          <p class="sub-text text-sm sm:text-base max-w-2xl leading-relaxed font-light" id="hero-desc">
+            UniKurd Gateway bridges academic excellence and technical innovation across Erbil, Sulaymaniah, and Duhok. Enroll in accredited university degree programs or intensive IT bootcamps for global software & engineering roles.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <button onclick="openRegisterModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:from-amber-600 hover:to-amber-700 transition-all flex items-center justify-center gap-3">
+              <span id="hero-btn-primary">Apply for 2026 Admissions</span>
+              <i class="fa-solid fa-arrow-right rtl-flip"></i>
+            </button>
+
+            <a href="#programs" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800/80 hover:bg-slate-300 dark:hover:bg-slate-800 heading-text font-bold text-xs border border-slate-300 dark:border-slate-700 transition-colors text-center flex items-center justify-center gap-2" id="hero-btn-secondary">
+              <i class="fa-solid fa-book-open text-amber-500"></i>
+              <span>Explore Programs</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- SEARCH WIDGET -->
+        <div class="lg:col-span-5">
+          <div class="glass-card rounded-2xl p-6 lg:p-8 shadow-2xl">
+            <h3 class="text-lg font-bold heading-text mb-4" id="quick-search-title">Fast-Track Application</h3>
+            
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold sub-text mb-1" id="lbl-degree-level">Program Category</label>
+                <select id="hero-degree-select" class="w-full input-bg rounded-lg px-3 py-2.5 text-xs outline-none focus:border-amber-500">
+                  <option value="Diploma">Diploma (Technical Associate)</option>
+                  <option value="Bachelor">Bachelor Degree (4 Years)</option>
+                  <option value="Master">Master Degree (Research / Taught)</option>
+                  <option value="PhD">PhD Doctorate</option>
+                  <option value="Bootcamp">Tech Academy Bootcamp (Software / Cloud / AI)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold sub-text mb-1" id="lbl-city">Target City & Hub</label>
+                <select id="hero-city-select" class="w-full input-bg rounded-lg px-3 py-2.5 text-xs outline-none focus:border-amber-500">
+                  <option value="Erbil">Erbil (هەولێر / Hewlêr)</option>
+                  <option value="Sulaymaniah">Sulaymaniah (سلێمانی / Silêmanî)</option>
+                  <option value="Duhok">Duhok (دهۆک / Duhok)</option>
+                </select>
+              </div>
+
+              <button onclick="triggerQuickRegistration()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-lg text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 mt-4 shadow-lg shadow-amber-500/20">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span id="btn-quick-register">Start Direct Registration</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 section-alt-bg border-t border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold text-amber-500 uppercase tracking-widest" id="about-subtitle">ABOUT UNIKURD GATEWAY</span>
+          <h2 class="text-3xl font-extrabold heading-text" id="about-title">Connecting Global Scholars & Tech Talent with Kurdistan</h2>
+          <p class="sub-text text-xs sm:text-sm leading-relaxed" id="about-desc-1">
+            UniKurd Gateway serves as the centralized admission portal for higher education institutions and tech acceleration bootcamps across Erbil, Sulaymaniah, and Duhok.
+          </p>
+          <p class="sub-text text-xs sm:text-sm leading-relaxed" id="about-desc-2">
+            We streamline degree equivalencies, international student visas, university admissions, and industry-partnered technical training programs for software engineering and technology startups.
+          </p>
+        </div>
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <h3 class="text-3xl font-black text-amber-500">25+</h3>
+            <p class="text-xs sub-text mt-1">Partner Universities & Tech Companies</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <h3 class="text-3xl font-black text-amber-500">300+</h3>
+            <p class="text-xs sub-text mt-1">Academic & Bootcamp Courses</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <h3 class="text-3xl font-black text-amber-500">3</h3>
+            <p class="text-xs sub-text mt-1">Regional Innovation Hubs</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <h3 class="text-3xl font-black text-amber-500">100%</h3>
+            <p class="text-xs sub-text mt-1">Ministry & Industry Accredited</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM & TECH BOOTCAMP SHOWCASE SECTION -->
+  <section id="programs" class="py-20 site-bg border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2">OFFERED QUALIFICATIONS & TRACKS</h2>
+        <h3 class="text-3xl font-extrabold heading-text">Academic Degrees & Tech Academy Bootcamps</h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 1. Technical Diploma Card -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Technical Diploma</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">2-Year Diploma</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">Hands-on technical and associate diploma qualifications certified by polytechnic faculties.</p>
+          </div>
+          <button onclick="openProgramModal('Diploma', '2-Year Technical Diploma', 'Vocational degree focusing on applied computing, electrical engineering, and administration.')" class="w-full py-2.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 heading-text text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+        <!-- 2. Bachelor Degree Card -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Undergraduate</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">Bachelor's Degree</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">4 to 6 year undergraduate degrees across Computer Science, Medicine, Law, Business, and Engineering.</p>
+          </div>
+          <button onclick="openProgramModal('Bachelor', 'Bachelor Degree', 'Full-time undergraduate programs with international credit transfer across top public and private faculties.')" class="w-full py-2.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 heading-text text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+        <!-- 3. Master Degree Card -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Postgraduate</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">Master's Degree</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">Advanced academic research Master's programs with specialized thesis tracks and industry project options.</p>
+          </div>
+          <button onclick="openProgramModal('Master', 'Master Degree', 'Specialized postgraduate research programs supervised by accredited faculty professors.')" class="w-full py-2.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 heading-text text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+        <!-- 4. PhD Doctorate Card -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Doctorate</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">PhD Doctorate</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">3 to 5 year doctoral research degree for academic scholars, researchers, and university lecturers.</p>
+          </div>
+          <button onclick="openProgramModal('PhD', 'PhD Doctorate Research', 'Comprehensive PhD fellowship grants and thesis supervision across partner university centers.')" class="w-full py-2.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 heading-text text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+        <!-- 5. Tech Bootcamp: Full-Stack & Cloud -->
+        <div class="glass-card rounded-2xl p-6 border-amber-500/50 hover:border-amber-500 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">UniKurd Tech Academy</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">Full-Stack & Cloud Bootcamp</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">16-week intensive software engineering program covering React, Node.js, AWS, DevOps, and job placement support.</p>
+          </div>
+          <button onclick="openProgramModal('Bootcamp', 'Full-Stack Software Engineering', '16-Week career bootcamp featuring hands-on full-stack development, cloud architecture, and job placement in tech firms.')" class="w-full py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+        <!-- 6. Tech Bootcamp: AI & Cybersecurity -->
+        <div class="glass-card rounded-2xl p-6 border-amber-500/50 hover:border-amber-500 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider">UniKurd Tech Academy</span>
+            <h4 class="text-lg font-bold heading-text mt-1 mb-2">AI, Data Science & Cyber</h4>
+            <p class="sub-text text-xs leading-relaxed mb-6">Specialized technical training in Machine Learning, Python Data Science, and Network Security certification.</p>
+          </div>
+          <button onclick="openProgramModal('Bootcamp', 'AI & Cybersecurity Track', '12-Week professional bootcamp focused on practical AI models, ethical hacking, and enterprise cybersecurity.')" class="w-full py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold transition-colors">
+            View Details & Apply
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CITIES & TECH HUBS SECTION -->
+  <section id="cities" class="py-20 section-alt-bg border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2">ACADEMIC & INNOVATION HUBS</h2>
+        <h3 class="text-3xl font-extrabold heading-text">Erbil, Sulaymaniah & Duhok Centers</h3>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Erbil -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl font-black mb-4">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <h4 class="text-xl font-bold heading-text mb-2">Erbil (هەولێر / Hewlêr)</h4>
+          <p class="sub-text text-xs leading-relaxed">Capital tech epicenter home to Salahaddin University, UKH, Hawler Medical University, and high-growth IT tech startups.</p>
+        </div>
+
+        <!-- Sulaymaniah -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl font-black mb-4">
+            <i class="fa-solid fa-landmark"></i>
+          </div>
+          <h4 class="text-xl font-bold heading-text mb-2">Sulaymaniah (سلێمانی / Silêmanî)</h4>
+          <p class="sub-text text-xs leading-relaxed">Cultural & innovation hub featuring University of Sulaimani, Sulaimani Polytechnic, and AUIS Innovation Labs.</p>
+        </div>
+
+        <!-- Duhok -->
+        <div class="glass-card rounded-2xl p-6 hover:border-amber-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl font-black mb-4">
+            <i class="fa-solid fa-mountain-city"></i>
+          </div>
+          <h4 class="text-xl font-bold heading-text mb-2">Duhok (دهۆک / Duhok)</h4>
+          <p class="sub-text text-xs leading-relaxed">Northern academic center featuring University of Duhok, Duhok Polytechnic, and AUK international research facilities.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PARTNER UNIVERSITIES SECTION -->
+  <section id="partners" class="py-20 site-bg border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2">ACCREDITED NETWORK</h2>
+        <h3 class="text-3xl font-extrabold heading-text">Partner Universities & Tech Companies</h3>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div onclick="openPartnerModal('UKH', 'University of Kurdistan Hewlêr', 'Erbil')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">UKH</div>
+          <h5 class="text-xs font-bold heading-text">UKH</h5>
+          <span class="text-[10px] sub-text">Erbil</span>
+        </div>
+
+        <div onclick="openPartnerModal('SUE', 'Salahaddin University - Erbil', 'Erbil')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">SUE</div>
+          <h5 class="text-xs font-bold heading-text">Salahaddin Univ.</h5>
+          <span class="text-[10px] sub-text">Erbil</span>
+        </div>
+
+        <div onclick="openPartnerModal('UOS', 'University of Sulaimani', 'Sulaymaniah')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">UOS</div>
+          <h5 class="text-xs font-bold heading-text">U. of Sulaimani</h5>
+          <span class="text-[10px] sub-text">Sulaymaniah</span>
+        </div>
+
+        <div onclick="openPartnerModal('AUIS', 'American University of Iraq, Sulaimani', 'Sulaymaniah')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">AUIS</div>
+          <h5 class="text-xs font-bold heading-text">AUIS</h5>
+          <span class="text-[10px] sub-text">Sulaymaniah</span>
+        </div>
+
+        <div onclick="openPartnerModal('UOD', 'University of Duhok', 'Duhok')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">UOD</div>
+          <h5 class="text-xs font-bold heading-text">U. of Duhok</h5>
+          <span class="text-[10px] sub-text">Duhok</span>
+        </div>
+
+        <div onclick="openPartnerModal('AUK', 'American University of Kurdistan', 'Duhok')" class="p-6 glass-card rounded-xl text-center cursor-pointer hover:border-amber-500/60 transition-all">
+          <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-amber-500 flex items-center justify-center font-black mx-auto mb-3">AUK</div>
+          <h5 class="text-xs font-bold heading-text">AUK</h5>
+          <span class="text-[10px] sub-text">Duhok</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PARTNER BENEFITS CHART -->
+  <section id="benefits" class="py-20 section-alt-bg border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <h2 class="text-xs uppercase tracking-widest text-amber-500 font-bold">PARTNER BENEFITS</h2>
+          <h3 class="text-3xl font-extrabold heading-text">Partner Advantage Allocation</h3>
+          <p class="sub-text text-xs sm:text-sm leading-relaxed">
+            UniKurd Gateway provides strategic benefit distribution across international student placement, software company hiring pipelines, academic research funding, and cross-border university exchanges.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 glass-card rounded-xl">
+              <span class="text-xs font-bold text-amber-500 block">35% Student Recruitment</span>
+              <p class="text-[11px] sub-text mt-1">Direct international & domestic admissions pipeline.</p>
+            </div>
+            <div class="p-4 glass-card rounded-xl">
+              <span class="text-xs font-bold text-blue-500 block">25% Academic & Tech Recognition</span>
+              <p class="text-[11px] sub-text mt-1">Ministry accreditation & tech firm hiring partner network.</p>
+            </div>
+            <div class="p-4 glass-card rounded-xl">
+              <span class="text-xs font-bold text-emerald-500 block">20% Research & Grants</span>
+              <p class="text-[11px] sub-text mt-1">Shared thesis research funding & tech startup incubators.</p>
+            </div>
+            <div class="p-4 glass-card rounded-xl">
+              <span class="text-xs font-bold text-purple-500 block">20% Cultural Exchange</span>
+              <p class="text-[11px] sub-text mt-1">Global university exchange & tech bootcamp workshops.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <h4 class="text-base font-bold heading-text mb-4">Partner Benefit Allocation (%)</h4>
+            
+            <div class="relative w-full max-w-xs mx-auto h-64">
+              <canvas id="benefitsChart"></canvas>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs sub-text flex flex-wrap justify-around gap-2">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-amber-500"></i> Recruitment (35%)</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-blue-500"></i> Recognition (25%)</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-emerald-500"></i> Research (20%)</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-purple-500"></i> Exchange (20%)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section id="contact" class="py-20 site-bg border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto glass-card p-8 rounded-2xl">
+        <div class="text-center mb-8">
+          <h2 class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-1">GET IN TOUCH</h2>
+          <h3 class="text-2xl font-black heading-text">Contact UniKurd Support</h3>
+        </div>
+
+        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Your Name</label>
+              <input type="text" required placeholder="Full Name" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Email Address</label>
+              <input type="email" required placeholder="email@example.com" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold sub-text mb-1">Message</label>
+            <textarea rows="4" required placeholder="Inquire about university degrees or tech bootcamps..." class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-lg text-xs uppercase tracking-wider transition-all">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION & LOCAL PAYMENT MODAL -->
+  <div id="modal-register" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-xl w-full rounded-2xl border shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-amber-500 to-amber-600 p-5 text-slate-950 relative shrink-0">
+        <button onclick="closeRegisterModal()" class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-slate-950 hover:text-white text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="bg-slate-950 text-amber-400 text-[10px] font-black px-2 py-0.5 rounded-md uppercase" id="step-indicator-badge">Step 1 of 2</span>
+          <h3 class="text-lg font-black" id="modal-heading">Applicant Registration</h3>
+        </div>
+        <p class="text-xs font-semibold text-slate-900/80" id="modal-subheading">Academic & Personal Information</p>
+      </div>
+
+      <!-- Registration Form Body -->
+      <div class="p-6 overflow-y-auto space-y-5">
+        
+        <!-- STEP 1: PERSONAL & PROGRAM SELECTION -->
+        <div id="reg-step-1" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold sub-text mb-1">Full Applicant Name</label>
+            <input type="text" id="reg-fullname" required placeholder="e.g. Sipan Ahmed Kardo" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Email Address</label>
+              <input type="email" id="reg-email" required placeholder="student@example.com" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Phone / WhatsApp</label>
+              <input type="tel" id="reg-phone" required placeholder="+964 750 000 0000" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Selected Program</label>
+              <select id="modal-degree-select" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+                <option value="Diploma">Diploma (Technical)</option>
+                <option value="Bachelor">Bachelor Degree</option>
+                <option value="Master">Master Degree</option>
+                <option value="PhD">PhD Doctorate</option>
+                <option value="Bootcamp">Tech Academy Bootcamp</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold sub-text mb-1">Target Study City</label>
+              <select id="modal-city-select" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+                <option value="Erbil">Erbil (هەولێر / Hewlêr)</option>
+                <option value="Sulaymaniah">Sulaymaniah (سلێمانی / Silêmanî)</option>
+                <option value="Duhok">Duhok (دهۆک / Duhok)</option>
+              </select>
+            </div>
+          </div>
+
+          <button onclick="goToStep2()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 mt-2">
+            <span>Proceed to Fee Checkout</span>
+            <i class="fa-solid fa-arrow-right rtl-flip"></i>
+          </button>
+        </div>
+
+        <!-- STEP 2: APPLICATION FEE PAYMENT -->
+        <div id="reg-step-2" class="space-y-4 hidden">
+          
+          <!-- Fee Summary Card -->
+          <div class="p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-amber-500 block uppercase">Application Fee</span>
+              <span class="text-[11px] sub-text">Verified Registration Receipt</span>
+            </div>
+            <div class="text-right">
+              <span class="text-xl font-black text-amber-500">$50 USD</span>
+              <span class="text-[10px] block sub-text">75,000 IQD</span>
+            </div>
+          </div>
+
+          <!-- Payment Method Selector -->
+          <div>
+            <label class="block text-xs font-bold sub-text mb-2">Select Regional Payment Method</label>
+            <div class="grid grid-cols-3 gap-2 text-center text-xs font-bold">
+              
+              <!-- FIB Payment Tab -->
+              <button type="button" onclick="selectPaymentMethod('fib')" id="pay-tab-fib" class="p-2.5 rounded-lg border border-amber-500 bg-amber-500/10 text-amber-500 flex flex-col items-center gap-1">
+                <i class="fa-solid fa-building-columns text-base"></i>
+                <span class="text-[10px]">FIB Bank</span>
+              </button>
+
+              <!-- Mobile Wallet Tab -->
+              <button type="button" onclick="selectPaymentMethod('mobile')" id="pay-tab-mobile" class="p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 sub-text hover:border-amber-500 flex flex-col items-center gap-1">
+                <i class="fa-solid fa-mobile-screen-button text-base"></i>
+                <span class="text-[10px]">FastPay / ZainCash</span>
+              </button>
+
+              <!-- Credit Card Tab -->
+              <button type="button" onclick="selectPaymentMethod('card')" id="pay-tab-card" class="p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 sub-text hover:border-amber-500 flex flex-col items-center gap-1">
+                <i class="fa-solid fa-credit-card text-base"></i>
+                <span class="text-[10px]">Visa / Mastercard</span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Dynamic Payment Inputs -->
+          <div id="payment-input-area" class="space-y-3 pt-2">
+            
+            <!-- FIB Details -->
+            <div id="pay-input-fib" class="space-y-2">
+              <label class="block text-xs font-bold sub-text">FIB Account Number or Personal ID</label>
+              <input type="text" placeholder="FIB-892014-IQ" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+              <p class="text-[10px] text-slate-400">Direct transfer to UniKurd FIB Merchant ID: <strong class="text-amber-500">FIB-4099201-UK</strong></p>
+            </div>
+
+            <!-- Mobile Wallet Details -->
+            <div id="pay-input-mobile" class="space-y-2 hidden">
+              <label class="block text-xs font-bold sub-text">Mobile Wallet Number (FastPay / ZainCash)</label>
+              <input type="tel" placeholder="0750 000 0000" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+              <p class="text-[10px] text-slate-400">FastPay Merchant ID: <strong class="text-amber-500">920041</strong></p>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="pay-input-card" class="space-y-2 hidden">
+              <label class="block text-xs font-bold sub-text">Card Number</label>
+              <input type="text" placeholder="4000 1234 5678 9010" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+              <div class="grid grid-cols-2 gap-2">
+                <input type="text" placeholder="MM/YY" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+                <input type="text" placeholder="CVV" class="w-full input-bg rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-500">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex gap-3 pt-3">
+            <button type="button" onclick="goToStep1()" class="w-1/3 bg-slate-200 dark:bg-slate-800 heading-text font-bold py-3 rounded-lg text-xs uppercase">
+              Back
+            </button>
+            <button type="button" onclick="handleRegistrationSubmit()" class="w-2/3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/20" id="btn-form-submit">
+              Pay $50 & Submit Application
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROGRAM DETAILS MODAL -->
+  <div id="modal-program" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full rounded-2xl border shadow-2xl p-6 relative">
+      <button onclick="closeProgramModal()" class="absolute top-4 right-4 sub-text hover:text-amber-500 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <h3 class="text-xl font-black heading-text" id="prog-modal-title">Program Title</h3>
+      <p class="text-xs text-amber-500 font-bold mb-3" id="prog-modal-tag">Program Tag</p>
+      <p class="text-xs sub-text leading-relaxed mb-6" id="prog-modal-desc">
+        Program detailed overview text...
+      </p>
+
+      <div class="flex gap-3">
+        <button onclick="closeProgramModal(); openRegisterModal();" class="flex-1 bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg text-xs uppercase">
+          Apply Now
+        </button>
+        <button onclick="closeProgramModal()" class="flex-1 bg-slate-200 dark:bg-slate-800 heading-text font-bold py-2.5 rounded-lg text-xs">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTNER MODAL -->
+  <div id="modal-partner" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full rounded-2xl border shadow-2xl p-6 text-center relative">
+      <button onclick="closePartnerModal()" class="absolute top-4 right-4 sub-text hover:text-amber-500 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="w-16 h-16 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl mx-auto mb-4" id="p-modal-code">
+        UKH
+      </div>
+      <h3 class="text-xl font-black heading-text" id="p-modal-name">University Name</h3>
+      <p class="text-xs text-amber-500 font-bold mb-4" id="p-modal-city">City Location</p>
+      <p class="text-xs sub-text leading-relaxed mb-6">
+        Accredited partner integrated with UniKurd Gateway for direct student admissions, degree equivalencies, and tech bootcamp job placement.
+      </p>
+
+      <div class="flex gap-3">
+        <button onclick="closePartnerModal(); openRegisterModal();" class="flex-1 bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg text-xs uppercase">
+          Apply Now
+        </button>
+        <button onclick="closePartnerModal()" class="flex-1 bg-slate-200 dark:bg-slate-800 heading-text font-bold py-2.5 rounded-lg text-xs">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 dark:bg-slate-950 light:bg-slate-100 text-slate-400 py-12 border-t border-slate-800 dark:border-slate-800 light:border-slate-300 transition-colors">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-baseline font-black text-xl heading-text mb-2">
+            <span>Un</span>
+            <span class="tilted-i text-white dark:text-white light:text-slate-900 mx-0.5">i</span>
+            <span class="text-amber-600 dark:text-amber-500">Kurd</span>
+          </div>
+          <p class="text-xs sub-text">
+            International Academic & Tech Placement Portal for Diploma, Bachelor, Master, PhD, and IT Bootcamps in Kurdistan Region.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold heading-text uppercase mb-3">Contact Information</h5>
+          <ul class="space-y-2 text-xs sub-text">
+            <li><i class="fa-solid fa-location-dot me-2 text-amber-500"></i> Ministry Road, Erbil, KRG Iraq</li>
+            <li><i class="fa-solid fa-envelope me-2 text-amber-500"></i> admissions@unikurd.edu.iq</li>
+            <li><i class="fa-solid fa-phone me-2 text-amber-500"></i> +964 (0) 66 210 0000</li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold heading-text uppercase mb-3">Navigation Links</h5>
+          <ul class="space-y-1.5 text-xs sub-text">
+            <li><a href="#about" class="hover:text-amber-500">About Us</a></li>
+            <li><a href="#programs" class="hover:text-amber-500">Degrees & Bootcamps</a></li>
+            <li><a href="#cities" class="hover:text-amber-500">Study Cities</a></li>
+            <li><a href="#partners" class="hover:text-amber-500">Partners</a></li>
+            <li><a href="#benefits" class="hover:text-amber-500">Partner Benefits</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 dark:border-slate-800 light:border-slate-300 pt-6 text-center text-xs sub-text">
+        &copy; 2026 UniKurd Gateway & Tech Academy. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    const translations = {
+      en: {
+        dir: 'ltr',
+        announcement: '2026-2027 Academic & Tech Bootcamp Admissions Open across Erbil, Sulaymaniah & Duhok!',
+        navAbout: 'About Us',
+        navPrograms: 'Degrees & Bootcamps',
+        navCities: 'Study & Tech Hubs',
+        navPartners: 'Partners',
+        navBenefits: 'Partner Benefits',
+        navContact: 'Contact Us',
+        navRegister: 'Register / Apply',
+        heroBadge: 'Kurdistan Region Academic & Tech Portal',
+        heroTitle: 'Empowering Education & Tech Careers in <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500">Kurdistan</span>',
+        heroDesc: 'UniKurd Gateway bridges academic excellence and technical innovation across Erbil, Sulaymaniah, and Duhok. Enroll in accredited university degree programs or intensive IT bootcamps.',
+        heroBtnPrimary: 'Apply for 2026 Admissions',
+        heroBtnSecondary: 'Explore Programs',
+        btnSubmit: 'Pay $50 & Submit Application'
+      },
+      ck: {
+        dir: 'rtl',
+        announcement: 'تۆمارکردنی زانکۆ و خولی تەکنەلۆژیا بۆ ساڵی ٢٠٢٦-٢٠٢٧ لە هەولێر، سلێمانی و دهۆک کرایەوە!',
+        navAbout: 'دەربارەی ئێمە',
+        navPrograms: 'بڕوانامە و خولەکان',
+        navCities: 'شارەکان و سەنتەرەکان',
+        navPartners: 'هاوبەشەکان',
+        navBenefits: 'سوودەکانی هاوبەشی',
+        navContact: 'پەیوەندیکردن',
+        navRegister: 'خۆتۆمارکردن',
+        heroBadge: 'دەروازەی ئەکادیمی و تەکنەلۆژیی هەرێمی کوردستان',
+        heroTitle: 'گەشەپێدانی خوێندن و پیشەی تەکنەلۆژیا لە <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500">کوردستان</span>',
+        heroDesc: 'پلاتفۆرمی UniKurd دەروازەی ڕاستەوخۆی قوتابیان و گەشەپێدەرانە بۆ درێژەدان بە خوێندنی زانکۆ و خولی بەهێزی بەرنامەسازی لە هەولێر، سلێمانی و دهۆک.',
+        heroBtnPrimary: 'تۆماربوون بۆ ساڵی ٢٠٢٦',
+        heroBtnSecondary: 'پسپۆڕییەکان',
+        btnSubmit: 'دانیشتنی ٥٠$ و تەواوکردنی تۆماربوون'
+      },
+      km: {
+        dir: 'ltr',
+        announcement: 'Tevlêbûna zanîngeh u xûlên teknolojiyê bo 2026-2027 li Hewlêr, Silêmanî u Duhokê vebû!',
+        navAbout: 'Dergahê Me',
+        navPrograms: 'Asta Xwendinê u Bootcamp',
+        navCities: 'Navendên Bajaran',
+        navPartners: 'Hevparên Me',
+        navBenefits: 'Mifayên Hevparî',
+        navContact: 'Pêwendî',
+        navRegister: 'Tevlêbûn',
+        heroBadge: 'Dergehê Fermî Yê Xwendin u Teknolojiyê Li Kurdistanê',
+        heroTitle: 'Pêşxistina Xwendin u Karên Teknolojiyê Li <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500">Kurdistanê</span>',
+        heroDesc: 'UniKurd Gateway dergehê te yê yekser e bo tevlêbûna zanîngehên Hewlêr, Silêmanî u Duhokê u xûlên berhemên teknolojiyê.',
+        heroBtnPrimary: 'Navê Xwe Têkest Bikin',
+        heroBtnSecondary: 'Lêgerîn Bikin',
+        btnSubmit: 'Pêdana $50 & Temamkirina Tevlêbûnê'
+      },
+      ar: {
+        dir: 'rtl',
+        announcement: 'باب القبول الجامعي والدورات التقنية لعام ٢٠٢٦-٢٠٢٧ مفتوح الآن في أربيل والسليمانية ودهوك!',
+        navAbout: 'عن المنصة',
+        navPrograms: 'الدرجات والدورات',
+        navCities: 'المراكز والأقاليم',
+        navPartners: 'الشركاء',
+        navBenefits: 'فوائد الشراكة',
+        navContact: 'اتصل بنا',
+        navRegister: 'التسجيل',
+        heroBadge: 'البوابة الأكاديمية والتقنية في إقليم كوردستان',
+        heroTitle: 'تمكين التعليم والمهن التقنية في <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500">كوردستان</span>',
+        heroDesc: 'منصة UniKurd هي البوابة المركزية للتسجيل في أفضل الجامعات المعترف بها والدورات البرمجية المتقدمة في أربيل والسليمانية ودهوك.',
+        heroBtnPrimary: 'التسجيل لعام ٢٠٢٦',
+        heroBtnSecondary: 'استكشاف البرامج',
+        btnSubmit: 'دفع ٥٠$ وإكمال التسجيل'
+      }
+    };
+
+    let selectedPayment = 'fib';
+    let myChart = null;
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.documentElement.dir = t.dir;
+
+      ['en', 'ck', 'km', 'ar'].forEach(l => {
+        const btn = document.getElementById(`lang-${l}`);
+        if (l === lang) {
+          btn.className = 'lang-btn bg-amber-500 text-slate-950 font-black';
+        } else {
+          btn.className = 'lang-btn sub-text hover:text-amber-500';
+        }
+      });
+
+      document.getElementById('top-announcement').innerText = t.announcement;
+      document.getElementById('nav-about').innerText = t.navAbout;
+      document.getElementById('nav-programs').innerText = t.navPrograms;
+      document.getElementById('nav-cities').innerText = t.navCities;
+      document.getElementById('nav-partners').innerText = t.navPartners;
+      document.getElementById('nav-benefits').innerText = t.navBenefits;
+      document.getElementById('nav-contact').innerText = t.navContact;
+      document.getElementById('btn-register-top').innerText = t.navRegister;
+
+      document.getElementById('hero-badge').innerText = t.heroBadge;
+      document.getElementById('hero-title').innerHTML = t.heroTitle;
+      document.getElementById('hero-desc').innerText = t.heroDesc;
+      document.getElementById('hero-btn-primary').innerText = t.heroBtnPrimary;
+      document.getElementById('hero-btn-secondary').innerText = t.heroBtnSecondary;
+      document.getElementById('btn-form-submit').innerText = t.btnSubmit;
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openRegisterModal(degree) {
+      if (degree) {
+        const select = document.getElementById('modal-degree-select');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(degree.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      goToStep1();
+      document.getElementById('modal-register').classList.remove('hidden');
+    }
+
+    function closeRegisterModal() {
+      document.getElementById('modal-register').classList.add('hidden');
+    }
+
+    function openProgramModal(tag, title, desc) {
+      document.getElementById('prog-modal-tag').innerText = tag;
+      document.getElementById('prog-modal-title').innerText = title;
+      document.getElementById('prog-modal-desc').innerText = desc;
+      document.getElementById('modal-program').classList.remove('hidden');
+    }
+
+    function closeProgramModal() {
+      document.getElementById('modal-program').classList.add('hidden');
+    }
+
+    function goToStep1() {
+      document.getElementById('reg-step-1').classList.remove('hidden');
+      document.getElementById('reg-step-2').classList.add('hidden');
+      document.getElementById('step-indicator-badge').innerText = "Step 1 of 2";
+      document.getElementById('modal-heading').innerText = "Applicant Registration";
+      document.getElementById('modal-subheading').innerText = "Academic & Personal Information";
+    }
+
+    function goToStep2() {
+      const name = document.getElementById('reg-fullname').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+
+      if (!name || !email) {
+        alert("Please provide your full name and email address before proceeding.");
+        return;
+      }
+
+      document.getElementById('reg-step-1').classList.add('hidden');
+      document.getElementById('reg-step-2').classList.remove('hidden');
+      document.getElementById('step-indicator-badge').innerText = "Step 2 of 2";
+      document.getElementById('modal-heading').innerText = "Application Fee Checkout";
+      document.getElementById('modal-subheading').innerText = "Complete registration payment";
+    }
+
+    function selectPaymentMethod(method) {
+      selectedPayment = method;
+      ['fib', 'mobile', 'card'].forEach(m => {
+        const tab = document.getElementById(`pay-tab-${m}`);
+        const input = document.getElementById(`pay-input-${m}`);
+        
+        if (m === method) {
+          tab.className = "p-2.5 rounded-lg border border-amber-500 bg-amber-500/10 text-amber-500 flex flex-col items-center gap-1 font-bold";
+          input.classList.remove('hidden');
+        } else {
+          tab.className = "p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 sub-text hover:border-amber-500 flex flex-col items-center gap-1 font-bold";
+          input.classList.add('hidden');
+        }
+      });
+    }
+
+    function triggerQuickRegistration() {
+      const degreeSelect = document.getElementById('hero-degree-select').value;
+      const citySelect = document.getElementById('hero-city-select').value;
+
+      document.getElementById('modal-degree-select').value = degreeSelect;
+      document.getElementById('modal-city-select').value = citySelect;
+
+      openRegisterModal();
+    }
+
+    function openPartnerModal(code, name, city) {
+      document.getElementById('p-modal-code').innerText = code;
+      document.getElementById('p-modal-name').innerText = name;
+      document.getElementById('p-modal-city').innerText = city;
+      document.getElementById('modal-partner').classList.remove('hidden');
+    }
+
+    function closePartnerModal() {
+      document.getElementById('modal-partner').classList.add('hidden');
+    }
+
+    function handleRegistrationSubmit() {
+      closeRegisterModal();
+      alert("Registration & Payment Complete! A receipt has been issued and sent to your email.");
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert("Thank you! The UniKurd team will respond to your message shortly.");
+      e.target.reset();
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      document.documentElement.classList.toggle('light');
+    });
+
+    document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+    window.onload = function() {
+      setLanguage('en');
+
+      const ctx = document.getElementById('benefitsChart').getContext('2d');
+      myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Student Recruitment', 'Academic Recognition', 'Research & Grants', 'Cultural Exchange'],
+          datasets: [{
+            data: [35, 25, 20, 20],
+            backgroundColor: ['#f59e0b', '#3b82f6', '#10b981', '#8b5cf6'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          cutout: '68%'
+        }
+      });
+    };
+  </script>
+</body>
+</html>
